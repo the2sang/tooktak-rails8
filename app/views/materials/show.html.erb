@@ -1,0 +1,11 @@
+<%= page_header(@material.name) { btn_secondary("편집", edit_material_path(@material)) } %>
+<div class="bg-white shadow rounded-lg p-6">
+  <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+    <div><dt class="text-gray-500">코드</dt><dd><%= @material.code %></dd></div>
+    <div><dt class="text-gray-500">분류</dt><dd><%= @material.category %></dd></div>
+    <div><dt class="text-gray-500">규격</dt><dd><%= @material.specification %></dd></div>
+    <div><dt class="text-gray-500">단위</dt><dd><%= @material.unit %></dd></div>
+    <div><dt class="text-gray-500">단가</dt><dd><%= format_amount(@material.unit_price) %></dd></div>
+    <div><dt class="text-gray-500">공급업체</dt><dd><%= @material.supplier&.name %></dd></div>
+  </dl>
+</div>

@@ -1,0 +1,13 @@
+<%= page_header("기성청구 #{@billing.billing_no}") { btn_secondary("편집", edit_billing_path(@billing)) } %>
+<div class="bg-white shadow rounded-lg p-6">
+  <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+    <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @billing.project.name, @billing.project, class: "text-blue-600" %></dd></div>
+    <div><dt class="text-gray-500">청구월</dt><dd><%= @billing.billing_month.strftime("%Y년 %m월") %></dd></div>
+    <div><dt class="text-gray-500">기성율</dt><dd><%= @billing.progress_rate %>%</dd></div>
+    <div><dt class="text-gray-500">상태</dt><dd><%= status_badge(@billing.payment_status) %></dd></div>
+    <div><dt class="text-gray-500">청구금액</dt><dd class="font-semibold text-lg"><%= format_amount(@billing.claim_amount) %></dd></div>
+    <div><dt class="text-gray-500">승인금액</dt><dd class="font-semibold text-lg"><%= format_amount(@billing.approved_amount) %></dd></div>
+    <div><dt class="text-gray-500">제출일</dt><dd><%= format_date(@billing.submitted_at) %></dd></div>
+    <div><dt class="text-gray-500">승인일</dt><dd><%= format_date(@billing.approved_at) %></dd></div>
+  </dl>
+</div>

@@ -1,0 +1,29 @@
+#!/bin/bash -e
+
+# Always prepare databases when running rails server
+if [ "$1" = "./bin/rails" ] && [ "$2" = "server" ]; then
+  echo "==> Preparing primary database..."
+  ./bin/rails db:prepare
+
+  echo "==> Preparing Solid Queue database..."
+  ./bin/rails db:prepare:queue 2>/dev/null || DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:schema:load:queue 2>/dev/null || true
+
+  echo "==> Preparing Solid Cache database..."
+  ./bin/rails db:prepare:cache 2>/dev/null || DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:schema:load:cache 2>/dev/null || true
+
+  echo "==> Preparing Solid Cable database..."
+  ./bin/rails db:prepare:cable 2>/dev/null || DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:schema:load:cable 2>/dev/null || true
+
+  # Seed only if database is empty
+  USER_COUNT=$(./bin/rails runner "print User.count" 2>/dev/null || echo "0")
+  if [ "$USER_COUNT" = "0" ]; then
+    echo "==> Seeding database..."
+    ./bin/rails db:seed
+  else
+    echo "==> Database already seeded (${USER_COUNT} users found)"
+  fi
+
+  echo "==> Database ready!"
+fi
+
+exec "${@}"

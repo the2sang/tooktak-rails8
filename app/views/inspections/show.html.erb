@@ -1,0 +1,12 @@
+<%= page_header(@inspection.title) { btn_secondary("편집", edit_inspection_path(@inspection)) } %>
+<div class="bg-white shadow rounded-lg p-6">
+  <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+    <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @inspection.project.name, @inspection.project, class: "text-blue-600" %></dd></div>
+    <div><dt class="text-gray-500">검사유형</dt><dd><%= badge(@inspection.inspection_type_i18n, :indigo) %></dd></div>
+    <div><dt class="text-gray-500">위치</dt><dd><%= @inspection.location %> (<%= @inspection.floor %>)</dd></div>
+    <div><dt class="text-gray-500">검사자</dt><dd><%= @inspection.inspector&.name %></dd></div>
+    <div><dt class="text-gray-500">상태</dt><dd><%= status_badge(@inspection.status) %></dd></div>
+    <div><dt class="text-gray-500">예정일</dt><dd><%= format_date(@inspection.scheduled_date) %></dd></div>
+    <div class="col-span-2"><dt class="text-gray-500">결과</dt><dd class="mt-1 whitespace-pre-wrap"><%= @inspection.result_notes || "-" %></dd></div>
+  </dl>
+</div>

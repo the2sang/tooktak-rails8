@@ -1,0 +1,52 @@
+<%= page_header(@issue.title) do %>
+  <div class="flex gap-2">
+    <%= btn_secondary("편집", edit_issue_path(@issue)) %>
+  </div>
+<% end %>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 space-y-6">
+    <div class="bg-white shadow rounded-lg p-6">
+      <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+        <div><dt class="text-gray-500">이슈번호</dt><dd class="font-medium"><%= @issue.issue_no %></dd></div>
+        <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @issue.project.name, @issue.project, class: "text-blue-600" %></dd></div>
+        <div><dt class="text-gray-500">위치</dt><dd><%= @issue.location %> (<%= @issue.floor %>)</dd></div>
+        <div><dt class="text-gray-500">공종</dt><dd><%= @issue.category&.name || "-" %></dd></div>
+        <div><dt class="text-gray-500">보고자</dt><dd><%= @issue.reported_by&.name %></dd></div>
+        <div><dt class="text-gray-500">담당자</dt><dd><%= @issue.assigned_to&.name %></dd></div>
+        <div><dt class="text-gray-500">심각도</dt><dd><%= severity_badge(@issue.severity) %></dd></div>
+        <div><dt class="text-gray-500">상태</dt><dd><%= status_badge(@issue.status) %></dd></div>
+        <div><dt class="text-gray-500">기한</dt><dd><%= format_date(@issue.due_date) %></dd></div>
+        <div class="col-span-2"><dt class="text-gray-500">설명</dt><dd class="mt-1 whitespace-pre-wrap"><%= @issue.description %></dd></div>
+        <% if @issue.resolution.present? %>
+          <div class="col-span-2"><dt class="text-gray-500">해결내용</dt><dd class="mt-1 whitespace-pre-wrap"><%= @issue.resolution %></dd></div>
+        <% end %>
+      </dl>
+    </div>
+
+    <!-- 댓글 -->
+    <div class="bg-white shadow rounded-lg">
+      <div class="px-5 py-4 border-b"><h3 class="font-semibold">댓글 (<%= @comments.count %>)</h3></div>
+      <div class="divide-y">
+        <% @comments.each do |comment| %>
+          <div class="px-5 py-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 text-xs font-medium"><%= comment.author.name.first %></span>
+              <span class="font-medium text-sm"><%= comment.author.name %></span>
+              <span class="text-xs text-gray-400"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+            </div>
+            <p class="text-sm text-gray-700 whitespace-pre-wrap"><%= comment.content %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white shadow rounded-lg p-5 h-fit">
+    <h3 class="text-sm font-semibold mb-3">타임라인</h3>
+    <ul class="space-y-2 text-sm">
+      <li class="text-gray-500">등록: <%= @issue.created_at.strftime("%Y-%m-%d") %></li>
+      <% if @issue.resolved_at %><li class="text-green-600">해결: <%= @issue.resolved_at.strftime("%Y-%m-%d") %></li><% end %>
+    </ul>
+  </div>
+</div>

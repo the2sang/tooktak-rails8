@@ -1,0 +1,12 @@
+<%= page_header(@document.title) { btn_secondary("편집", edit_document_path(@document)) } %>
+<div class="bg-white shadow rounded-lg p-6">
+  <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+    <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @document.project.name, @document.project, class: "text-blue-600" %></dd></div>
+    <div><dt class="text-gray-500">유형</dt><dd><%= badge(@document.doc_type_i18n, :indigo) %></dd></div>
+    <div><dt class="text-gray-500">파일명</dt><dd><%= @document.file_name %></dd></div>
+    <div><dt class="text-gray-500">MIME</dt><dd><%= @document.mime_type %></dd></div>
+    <div><dt class="text-gray-500">크기</dt><dd><%= number_to_human_size(@document.file_size || 0) %></dd></div>
+    <div><dt class="text-gray-500">등록자</dt><dd><%= @document.uploaded_by&.name %></dd></div>
+    <div class="col-span-2"><dt class="text-gray-500">설명</dt><dd><%= @document.description || "-" %></dd></div>
+  </dl>
+</div>

@@ -1,0 +1,17 @@
+<%= page_header("작업일보 수정") %>
+<%= form_with(model: @daily_report, class: "space-y-6") do |f| %>
+  <div class="bg-white shadow rounded-lg p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div><%= f.label :weather, "날씨", class: "block text-sm font-medium text-gray-700" %><%= f.text_field :weather, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm" %></div>
+      <div><%= f.label :temperature, "기온(℃)", class: "block text-sm font-medium text-gray-700" %><%= f.number_field :temperature, step: 0.1, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm" %></div>
+      <div><%= f.label :worker_count, "투입인원", class: "block text-sm font-medium text-gray-700" %><%= f.number_field :worker_count, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm" %></div>
+      <div class="md:col-span-2"><%= f.label :work_summary, "작업개요", class: "block text-sm font-medium text-gray-700" %><%= f.text_area :work_summary, rows: 3, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm" %></div>
+      <div class="md:col-span-2"><%= f.label :progress_notes, "공정현황", class: "block text-sm font-medium text-gray-700" %><%= f.text_area :progress_notes, rows: 3, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm" %></div>
+      <div class="md:col-span-2"><%= f.label :safety_notes, "안전사항", class: "block text-sm font-medium text-gray-700" %><%= f.text_area :safety_notes, rows: 2, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm" %></div>
+    </div>
+  </div>
+  <div class="flex justify-end gap-3">
+    <%= btn_secondary("취소", @daily_report) %>
+    <%= f.submit "수정", class: "inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 cursor-pointer" %>
+  </div>
+<% end %>

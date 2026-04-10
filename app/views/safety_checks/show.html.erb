@@ -1,0 +1,37 @@
+<%= page_header("안전점검 #{format_date(@safety_check.check_date)}") { btn_secondary("편집", edit_safety_check_path(@safety_check)) } %>
+<div class="bg-white shadow rounded-lg p-6 mb-6">
+  <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+    <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @safety_check.project.name, @safety_check.project, class: "text-blue-600" %></dd></div>
+    <div><dt class="text-gray-500">점검자</dt><dd><%= @safety_check.checker&.name %></dd></div>
+    <div><dt class="text-gray-500">종합결과</dt><dd>
+      <% color = @safety_check.overall_result == "양호" ? :green : @safety_check.overall_result == "주의" ? :yellow : :red %>
+      <%= badge(@safety_check.overall_result || "-", color) %>
+    </dd></div>
+    <div class="col-span-2"><dt class="text-gray-500">비고</dt><dd><%= @safety_check.notes %></dd></div>
+  </dl>
+</div>
+
+<div class="bg-white shadow rounded-lg overflow-hidden">
+  <h3 class="px-5 py-4 font-semibold border-b">점검 항목</h3>
+  <table class="min-w-full divide-y divide-gray-200 text-sm">
+    <thead class="bg-gray-50"><tr>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500">분류</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500">항목</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500">결과</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500">비고</th>
+    </tr></thead>
+    <tbody class="divide-y divide-gray-200">
+      <% @items.each do |item| %>
+        <tr>
+          <td class="px-5 py-3 text-gray-500"><%= item.category %></td>
+          <td class="px-5 py-3"><%= item.item %></td>
+          <td class="px-5 py-3">
+            <% color = item.result == "양호" ? :green : item.result == "주의" ? :yellow : :red %>
+            <%= badge(item.result || "-", color) %>
+          </td>
+          <td class="px-5 py-3 text-gray-500"><%= item.notes %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

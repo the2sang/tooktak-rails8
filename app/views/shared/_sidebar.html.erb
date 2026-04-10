@@ -1,0 +1,74 @@
+<!-- 사이드바 (데스크톱) -->
+<div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col">
+  <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
+    <!-- 로고 -->
+    <div class="flex h-16 shrink-0 items-center">
+      <span class="text-2xl font-bold text-white">tooktak</span>
+      <span class="ml-2 text-sm text-gray-400">시공관리</span>
+    </div>
+
+    <nav class="flex flex-1 flex-col">
+      <ul role="list" class="flex flex-1 flex-col gap-y-7">
+        <!-- 메인 메뉴 -->
+        <li>
+          <ul role="list" class="-mx-2 space-y-1">
+            <%= sidebar_link "대시보드", root_path, "home" %>
+            <%= sidebar_link "프로젝트", projects_path, "folder" %>
+            <%= sidebar_link "작업지시", work_orders_path, "clipboard" %>
+            <%= sidebar_link "작업일보", daily_reports_path, "document" %>
+            <%= sidebar_link "이슈/하자", issues_path, "exclamation" %>
+          </ul>
+        </li>
+
+        <!-- 품질/안전 -->
+        <li>
+          <div class="text-xs font-semibold leading-6 text-gray-400 uppercase">품질 · 안전</div>
+          <ul role="list" class="-mx-2 mt-2 space-y-1">
+            <%= sidebar_link "검사", inspections_path, "check" %>
+            <%= sidebar_link "안전점검", safety_checks_path, "shield" %>
+          </ul>
+        </li>
+
+        <!-- 자원관리 -->
+        <li>
+          <div class="text-xs font-semibold leading-6 text-gray-400 uppercase">자원 관리</div>
+          <ul role="list" class="-mx-2 mt-2 space-y-1">
+            <%= sidebar_link "자재", materials_path, "cube" %>
+            <%= sidebar_link "근로자", workers_path, "users" %>
+          </ul>
+        </li>
+
+        <!-- 비용관리 -->
+        <li>
+          <div class="text-xs font-semibold leading-6 text-gray-400 uppercase">비용 관리</div>
+          <ul role="list" class="-mx-2 mt-2 space-y-1">
+            <%= sidebar_link "비용", costs_path, "currency" %>
+            <%= sidebar_link "기성청구", billings_path, "receipt" %>
+          </ul>
+        </li>
+
+        <!-- 기타 -->
+        <li>
+          <div class="text-xs font-semibold leading-6 text-gray-400 uppercase">기타</div>
+          <ul role="list" class="-mx-2 mt-2 space-y-1">
+            <%= sidebar_link "문서", documents_path, "paperclip" %>
+            <%= sidebar_link "회사", companies_path, "building" %>
+          </ul>
+        </li>
+
+        <!-- 사용자 -->
+        <li class="mt-auto">
+          <div class="flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold text-gray-400">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-700 text-white text-xs">
+              <%= Current.user&.name&.first %>
+            </div>
+            <div class="flex-1 truncate">
+              <p class="text-white text-sm"><%= Current.user&.name %></p>
+              <p class="text-gray-500 text-xs"><%= Current.user&.role_i18n %></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

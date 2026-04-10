@@ -1,0 +1,39 @@
+<%= page_header("작업일보 #{format_date(@daily_report.report_date)}") { btn_secondary("편집", edit_daily_report_path(@daily_report)) } %>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 bg-white shadow rounded-lg p-6">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm mb-6">
+      <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @daily_report.project.name, @daily_report.project, class: "text-blue-600" %></dd></div>
+      <div><dt class="text-gray-500">작성자</dt><dd><%= @daily_report.created_by.name %></dd></div>
+      <div><dt class="text-gray-500">날씨</dt><dd><%= @daily_report.weather %> / <%= @daily_report.temperature %>℃</dd></div>
+      <div><dt class="text-gray-500">투입인원</dt><dd><%= @daily_report.worker_count %>명</dd></div>
+      <div class="col-span-2"><dt class="text-gray-500">작업개요</dt><dd class="mt-1 whitespace-pre-wrap"><%= @daily_report.work_summary %></dd></div>
+      <div class="col-span-2"><dt class="text-gray-500">공정현황</dt><dd class="mt-1 whitespace-pre-wrap"><%= @daily_report.progress_notes %></dd></div>
+      <div class="col-span-2"><dt class="text-gray-500">안전사항</dt><dd class="mt-1 whitespace-pre-wrap"><%= @daily_report.safety_notes %></dd></div>
+    </dl>
+
+    <h3 class="font-semibold border-t pt-4 mb-3">작업내역</h3>
+    <table class="min-w-full divide-y divide-gray-200 text-sm">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">공종</th>
+          <th class="px-3 py-2 text-left text-xs font-medium text-gray-500">작업내용</th>
+          <th class="px-3 py-2 text-right text-xs font-medium text-gray-500">수량</th>
+          <th class="px-3 py-2 text-right text-xs font-medium text-gray-500">인원</th>
+          <th class="px-3 py-2 text-right text-xs font-medium text-gray-500">진행률</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <% @items.each do |item| %>
+          <tr>
+            <td class="px-3 py-2 text-gray-500"><%= item.category&.name %></td>
+            <td class="px-3 py-2"><%= item.description %></td>
+            <td class="px-3 py-2 text-right text-gray-500"><%= item.quantity %> <%= item.unit %></td>
+            <td class="px-3 py-2 text-right text-gray-500"><%= item.worker_count %></td>
+            <td class="px-3 py-2 text-right text-gray-500"><%= item.progress_rate %>%</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

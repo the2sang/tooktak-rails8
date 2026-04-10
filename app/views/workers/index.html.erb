@@ -1,0 +1,23 @@
+<%= page_header("근로자 관리") { btn_primary("+ 새 근로자", new_worker_path) } %>
+<div class="bg-white shadow rounded-lg overflow-hidden">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50"><tr>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">이름</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">소속</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">직종</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">숙련도</th>
+      <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">연락처</th>
+    </tr></thead>
+    <tbody class="divide-y divide-gray-200">
+      <% @workers.each do |w| %>
+        <tr class="hover:bg-gray-50">
+          <td class="px-5 py-3 text-sm"><%= link_to w.name, w, class: "font-medium text-gray-900 hover:text-blue-600" %></td>
+          <td class="px-5 py-3 text-sm text-gray-500"><%= w.company&.name %></td>
+          <td class="px-5 py-3 text-sm text-gray-500"><%= w.trade %></td>
+          <td class="px-5 py-3 text-sm"><%= badge(w.skill_level || "-", :blue) %></td>
+          <td class="px-5 py-3 text-sm text-gray-500"><%= w.phone %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,59 @@
+<%= form_with(model: issue, class: "space-y-6") do |f| %>
+  <% if issue.errors.any? %>
+    <div class="rounded-md bg-red-50 p-4">
+      <ul class="list-disc list-inside text-sm text-red-700">
+        <% issue.errors.full_messages.each { |msg| %><li><%= msg %></li><% } %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bg-white shadow rounded-lg p-6 space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <%= f.label :issue_no, "이슈번호", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :issue_no, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :project_id, "프로젝트", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.collection_select :project_id, Project.order(:name), :id, :name, { include_blank: "선택" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div class="md:col-span-2">
+        <%= f.label :title, "제목", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :severity, "심각도", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.select :severity, Issue.severities.keys.map { |k| [Issue.human_enum_name(k), k] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :status, "상태", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.select :status, Issue.statuses.keys.map { |k| [Issue.human_enum_name(k), k] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :location, "위치", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :location, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :floor, "층", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :floor, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :assigned_to_id, "담당자", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.collection_select :assigned_to_id, User.where(status: :active).order(:name), :id, :name, { include_blank: "선택" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :due_date, "기한", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.date_field :due_date, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+      <div class="md:col-span-2">
+        <%= f.label :description, "설명", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_area :description, rows: 4, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-3">
+    <%= btn_secondary("취소", issue.persisted? ? issue_path(issue) : issues_path) %>
+    <%= f.submit issue.persisted? ? "수정" : "등록", class: "inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 cursor-pointer" %>
+  </div>
+<% end %>

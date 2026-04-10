@@ -1,0 +1,851 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-04-09T08:15:27.485Z",
+  "activeFeatures": [
+    "backend",
+    "middleware",
+    "handlers",
+    "routes",
+    "frontend",
+    "api",
+    "stores",
+    "login",
+    "register",
+    "(app)",
+    "dashboard",
+    "projects",
+    "migrate",
+    "tooktak-rails8",
+    "db",
+    "concerns",
+    "config",
+    "helpers",
+    "javascript"
+  ],
+  "primaryFeature": "backend",
+  "features": {
+    "backend": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:22:52.946Z",
+        "lastUpdated": "2026-04-07T07:23:39.726Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\backend\\src\\models\\project.rs"
+    },
+    "middleware": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:23:46.544Z",
+        "lastUpdated": "2026-04-07T07:23:51.628Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\backend\\src\\middleware\\auth.rs"
+    },
+    "handlers": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:23:53.212Z",
+        "lastUpdated": "2026-04-07T07:24:17.269Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\backend\\src\\handlers\\projects.rs"
+    },
+    "routes": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:24:26.730Z",
+        "lastUpdated": "2026-04-07T07:27:54.877Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\routes\\+page.svelte"
+    },
+    "frontend": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:26:46.872Z",
+        "lastUpdated": "2026-04-07T07:27:02.549Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\lib\\types\\index.ts"
+    },
+    "api": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:27:07.085Z",
+        "lastUpdated": "2026-04-07T07:27:07.085Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\lib\\api\\client.ts"
+    },
+    "stores": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:27:11.423Z",
+        "lastUpdated": "2026-04-07T07:27:11.423Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\lib\\stores\\auth.ts"
+    },
+    "login": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:27:30.625Z",
+        "lastUpdated": "2026-04-07T07:27:30.625Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\routes\\(auth)\\login\\+page.svelte"
+    },
+    "register": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:27:39.829Z",
+        "lastUpdated": "2026-04-07T07:27:39.829Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\routes\\(auth)\\register\\+page.svelte"
+    },
+    "(app)": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:28:08.634Z",
+        "lastUpdated": "2026-04-07T07:28:08.634Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\routes\\(app)\\+layout.svelte"
+    },
+    "dashboard": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:28:25.978Z",
+        "lastUpdated": "2026-04-07T07:28:25.978Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\routes\\(app)\\dashboard\\+page.svelte"
+    },
+    "projects": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-07T07:28:29.569Z",
+        "lastUpdated": "2026-04-07T07:28:29.569Z"
+      },
+      "lastFile": "g:\\project\\tooktak-base\\frontend\\src\\routes\\(app)\\projects\\+page.svelte"
+    },
+    "migrate": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T07:47:50.394Z",
+        "lastUpdated": "2026-04-09T07:51:52.395Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\db\\migrate\\20260409074713_create_users.rb"
+    },
+    "tooktak-rails8": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T07:54:08.787Z",
+        "lastUpdated": "2026-04-09T08:05:14.178Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\app\\controllers\\notifications_controller.rb"
+    },
+    "db": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T07:59:15.136Z",
+        "lastUpdated": "2026-04-09T07:59:15.136Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\db\\seeds.rb"
+    },
+    "concerns": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T08:03:36.845Z",
+        "lastUpdated": "2026-04-09T08:15:27.484Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\app\\models\\concerns\\korean_enum.rb"
+    },
+    "config": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T08:05:34.188Z",
+        "lastUpdated": "2026-04-09T08:05:34.188Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\config\\routes.rb"
+    },
+    "helpers": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T08:07:08.411Z",
+        "lastUpdated": "2026-04-09T08:08:08.473Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\app\\helpers\\application_helper.rb"
+    },
+    "javascript": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-09T08:07:16.155Z",
+        "lastUpdated": "2026-04-09T08:07:18.175Z"
+      },
+      "lastFile": "g:\\project\\tooktak-rails8\\app\\javascript\\controllers\\dismissible_controller.js"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-04-06T07:57:36.777Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-04-09T08:15:27.485Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-04-07T07:22:52.946Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:22:57.098Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:22:58.711Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:03.179Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:09.603Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:14.277Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:16.412Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:22.178Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:29.003Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:39.726Z",
+      "feature": "backend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:46.544Z",
+      "feature": "middleware",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:51.628Z",
+      "feature": "middleware",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:53.212Z",
+      "feature": "handlers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:23:54.796Z",
+      "feature": "handlers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:24:02.858Z",
+      "feature": "handlers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:24:06.367Z",
+      "feature": "handlers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:24:17.269Z",
+      "feature": "handlers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:24:26.730Z",
+      "feature": "routes",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:26:46.872Z",
+      "feature": "frontend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:02.549Z",
+      "feature": "frontend",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:07.085Z",
+      "feature": "api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:11.423Z",
+      "feature": "stores",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:30.625Z",
+      "feature": "login",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:39.829Z",
+      "feature": "register",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:53.225Z",
+      "feature": "routes",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:27:54.877Z",
+      "feature": "routes",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:28:08.634Z",
+      "feature": "(app)",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:28:25.978Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T07:28:29.569Z",
+      "feature": "projects",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:47:50.394Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:08.184Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:20.094Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:24.767Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:29.892Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:43.256Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:49.681Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:54.037Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:48:59.345Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:49:14.441Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:49:21.593Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:51:52.395Z",
+      "feature": "migrate",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:08.787Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:18.171Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:23.362Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:25.361Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:27.385Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:37.371Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:41.379Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:43.424Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:45.451Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:53.246Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:55.606Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:57.620Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:54:59.605Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:11.436Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:13.457Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:15.454Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:17.490Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:26.989Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:29.041Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:31.044Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:33.045Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:41.094Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:43.104Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:45.103Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:47.141Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:55.997Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:55:58.039Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:56:00.361Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:56:02.333Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:56:04.329Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T07:59:15.136Z",
+      "feature": "db",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:02:51.190Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:03:36.845Z",
+      "feature": "concerns",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:03:49.788Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:06.866Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:13.484Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:20.655Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:24.741Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:37.542Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:41.382Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:45.029Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:04:49.112Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:05:01.975Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:05:04.035Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:05:07.849Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:05:11.963Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:05:14.178Z",
+      "feature": "tooktak-rails8",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:05:34.188Z",
+      "feature": "config",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:07:08.411Z",
+      "feature": "helpers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:07:16.155Z",
+      "feature": "javascript",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:07:18.175Z",
+      "feature": "javascript",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:08:08.473Z",
+      "feature": "helpers",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-09T08:15:27.485Z",
+      "feature": "concerns",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}

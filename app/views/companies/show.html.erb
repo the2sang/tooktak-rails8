@@ -1,0 +1,26 @@
+<%= page_header(@company.name) { btn_secondary("편집", edit_company_path(@company)) } %>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <div class="bg-white shadow rounded-lg p-6">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+      <div><dt class="text-gray-500">사업자번호</dt><dd><%= @company.business_no %></dd></div>
+      <div><dt class="text-gray-500">유형</dt><dd><%= badge(@company.company_type_i18n, :blue) %></dd></div>
+      <div><dt class="text-gray-500">대표자</dt><dd><%= @company.ceo_name %></dd></div>
+      <div><dt class="text-gray-500">연락처</dt><dd><%= @company.phone %></dd></div>
+      <div><dt class="text-gray-500">이메일</dt><dd><%= @company.email %></dd></div>
+      <div class="col-span-2"><dt class="text-gray-500">주소</dt><dd><%= @company.address %></dd></div>
+    </dl>
+  </div>
+  <div class="bg-white shadow rounded-lg p-6">
+    <h3 class="font-semibold mb-3">소속 사용자 (<%= @users.count %>)</h3>
+    <ul class="space-y-2">
+      <% @users.each do |user| %>
+        <li class="flex items-center gap-2 text-sm">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 text-xs"><%= user.name.first %></span>
+          <span><%= user.name %></span>
+          <span class="text-gray-400 text-xs"><%= user.role_i18n %> · <%= user.position %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

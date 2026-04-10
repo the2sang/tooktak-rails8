@@ -1,0 +1,28 @@
+<%= page_header("회사 관리") { btn_primary("+ 새 회사", new_company_path) } %>
+
+<div class="bg-white shadow rounded-lg overflow-hidden">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">회사명</th>
+        <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">사업자번호</th>
+        <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">유형</th>
+        <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">대표자</th>
+        <th class="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase">연락처</th>
+        <th class="px-5 py-3"></th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      <% @companies.each do |company| %>
+        <tr class="hover:bg-gray-50">
+          <td class="px-5 py-3 text-sm"><%= link_to company.name, company, class: "font-medium text-gray-900 hover:text-blue-600" %></td>
+          <td class="px-5 py-3 text-sm text-gray-500"><%= company.business_no %></td>
+          <td class="px-5 py-3 text-sm"><%= badge(company.company_type_i18n, :blue) %></td>
+          <td class="px-5 py-3 text-sm text-gray-500"><%= company.ceo_name %></td>
+          <td class="px-5 py-3 text-sm text-gray-500"><%= company.phone %></td>
+          <td class="px-5 py-3 text-sm text-right"><%= link_to "편집", edit_company_path(company), class: "text-blue-600 hover:text-blue-800" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

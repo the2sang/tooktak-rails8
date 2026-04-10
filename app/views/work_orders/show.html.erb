@@ -1,0 +1,49 @@
+<%= page_header(@work_order.title) do %>
+  <div class="flex gap-2">
+    <%= btn_secondary("편집", edit_work_order_path(@work_order)) %>
+    <%= link_to "프로젝트로", project_path(@work_order.project), class: "text-sm text-gray-500 hover:text-gray-700 flex items-center" %>
+  </div>
+<% end %>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 bg-white shadow rounded-lg p-6">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+      <div><dt class="text-gray-500">지시번호</dt><dd class="font-medium"><%= @work_order.order_no %></dd></div>
+      <div><dt class="text-gray-500">프로젝트</dt><dd><%= link_to @work_order.project.name, @work_order.project, class: "text-blue-600 hover:text-blue-800" %></dd></div>
+      <div><dt class="text-gray-500">공종</dt><dd><%= @work_order.category&.name || "-" %></dd></div>
+      <div><dt class="text-gray-500">위치</dt><dd><%= @work_order.location %> (<%= @work_order.floor %>)</dd></div>
+      <div><dt class="text-gray-500">담당자</dt><dd><%= @work_order.assigned_to&.name || "-" %></dd></div>
+      <div><dt class="text-gray-500">우선순위</dt><dd><%= priority_badge(@work_order.priority) %></dd></div>
+      <div><dt class="text-gray-500">상태</dt><dd><%= status_badge(@work_order.status) %></dd></div>
+      <div><dt class="text-gray-500">기간</dt><dd><%= format_date(@work_order.planned_start) %> ~ <%= format_date(@work_order.planned_end) %></dd></div>
+      <div class="col-span-2"><dt class="text-gray-500">설명</dt><dd class="mt-1 whitespace-pre-wrap"><%= @work_order.description %></dd></div>
+    </dl>
+  </div>
+
+  <div class="space-y-6">
+    <!-- 관련 이슈 -->
+    <div class="bg-white shadow rounded-lg p-5">
+      <h3 class="text-sm font-semibold text-gray-900 mb-3">관련 이슈 (<%= @issues.count %>)</h3>
+      <ul class="space-y-2">
+        <% @issues.each do |issue| %>
+          <li class="flex justify-between items-center text-sm">
+            <%= link_to issue.title.truncate(25), issue, class: "text-gray-700 hover:text-blue-600" %>
+            <%= severity_badge(issue.severity) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <!-- 관련 검사 -->
+    <div class="bg-white shadow rounded-lg p-5">
+      <h3 class="text-sm font-semibold text-gray-900 mb-3">관련 검사 (<%= @inspections.count %>)</h3>
+      <ul class="space-y-2">
+        <% @inspections.each do |insp| %>
+          <li class="flex justify-between items-center text-sm">
+            <%= link_to insp.title.truncate(25), insp, class: "text-gray-700 hover:text-blue-600" %>
+            <%= status_badge(insp.status) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

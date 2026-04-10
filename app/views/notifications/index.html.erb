@@ -1,0 +1,27 @@
+<%= page_header("알림") do %>
+  <% if @notifications.any?(&:is_read) == false && @notifications.any? %>
+    <%= button_to "모두 읽음", mark_all_as_read_notifications_path, method: :patch, class: "text-sm text-blue-600 hover:text-blue-800" %>
+  <% end %>
+<% end %>
+
+<div class="bg-white shadow rounded-lg divide-y">
+  <% @notifications.each do |notification| %>
+    <div class="px-5 py-4 flex items-start gap-4 <%= notification.is_read ? 'opacity-60' : '' %>">
+      <div class="flex-shrink-0 mt-1">
+        <% dot_color = notification.is_read ? "bg-gray-300" : "bg-blue-500" %>
+        <span class="block h-2 w-2 rounded-full <%= dot_color %>"></span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium text-gray-900"><%= notification.title %></p>
+        <p class="text-sm text-gray-500"><%= notification.body %></p>
+        <p class="text-xs text-gray-400 mt-1"><%= notification.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+      </div>
+      <% unless notification.is_read %>
+        <%= button_to "읽음", mark_as_read_notification_path(notification), method: :patch, class: "text-xs text-blue-600 hover:text-blue-800" %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if @notifications.empty? %>
+    <div class="px-5 py-10 text-center text-gray-400">알림이 없습니다.</div>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<%= page_header(@worker.name) { btn_secondary("편집", edit_worker_path(@worker)) } %>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <div class="bg-white shadow rounded-lg p-6">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+      <div><dt class="text-gray-500">소속</dt><dd><%= @worker.company&.name %></dd></div>
+      <div><dt class="text-gray-500">직종</dt><dd><%= @worker.trade %></dd></div>
+      <div><dt class="text-gray-500">숙련도</dt><dd><%= @worker.skill_level %></dd></div>
+      <div><dt class="text-gray-500">연락처</dt><dd><%= @worker.phone %></dd></div>
+    </dl>
+  </div>
+  <div class="bg-white shadow rounded-lg p-6">
+    <h3 class="font-semibold mb-3">최근 출역 기록</h3>
+    <table class="min-w-full text-sm">
+      <thead><tr>
+        <th class="text-left py-1 text-gray-500">날짜</th>
+        <th class="text-left py-1 text-gray-500">프로젝트</th>
+        <th class="text-right py-1 text-gray-500">근무시간</th>
+        <th class="text-right py-1 text-gray-500">일당</th>
+      </tr></thead>
+      <tbody>
+        <% @attendances.each do |att| %>
+          <tr>
+            <td class="py-1"><%= format_date(att.work_date) %></td>
+            <td class="py-1 text-gray-500"><%= att.project.name.truncate(20) %></td>
+            <td class="py-1 text-right"><%= att.work_hours %>h</td>
+            <td class="py-1 text-right"><%= format_amount(att.daily_wage) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
