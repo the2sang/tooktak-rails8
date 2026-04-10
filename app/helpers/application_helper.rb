@@ -2,22 +2,22 @@ module ApplicationHelper
   def page_header(title, &block)
     content_for(:title) { title }
     content_tag(:div, class: "mb-6 flex items-center justify-between") do
-      content_tag(:h1, title, class: "text-2xl font-bold text-gray-900") +
+      content_tag(:h1, title, class: "text-xl font-semibold text-zinc-100 tracking-tight") +
       (block ? capture(&block) : "".html_safe)
     end
   end
 
   def badge(text, color = :gray)
     colors = {
-      gray: "bg-gray-100 text-gray-800",
-      blue: "bg-blue-100 text-blue-800",
-      green: "bg-green-100 text-green-800",
-      yellow: "bg-yellow-100 text-yellow-800",
-      red: "bg-red-100 text-red-800",
-      orange: "bg-orange-100 text-orange-800",
-      indigo: "bg-indigo-100 text-indigo-800"
+      gray: "bg-zinc-800 text-zinc-300 border border-zinc-700",
+      blue: "bg-blue-950/50 text-blue-300 border border-blue-800/50",
+      green: "bg-emerald-950/50 text-emerald-300 border border-emerald-800/50",
+      yellow: "bg-amber-950/50 text-amber-300 border border-amber-800/50",
+      red: "bg-red-950/50 text-red-300 border border-red-800/50",
+      orange: "bg-orange-950/50 text-orange-300 border border-orange-800/50",
+      indigo: "bg-indigo-950/50 text-indigo-300 border border-indigo-800/50"
     }
-    content_tag(:span, text, class: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium #{colors[color]}")
+    content_tag(:span, text, class: "inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium #{colors[color]}")
   end
 
   def status_badge(value)
@@ -65,10 +65,10 @@ module ApplicationHelper
   end
 
   def btn_primary(text, path, **options)
-    link_to text, path, class: "inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 #{options.delete(:class)}", **options
+    link_to text, path, class: "inline-flex items-center gap-1.5 rounded-lg bg-zinc-100 px-3 py-1.5 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-white transition-colors #{options.delete(:class)}", **options
   end
 
   def btn_secondary(text, path, **options)
-    link_to text, path, class: "inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 #{options.delete(:class)}", **options
+    link_to text, path, class: "inline-flex items-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm font-medium text-zinc-200 hover:bg-zinc-700 hover:border-zinc-600 transition-colors #{options.delete(:class)}", **options
   end
 end

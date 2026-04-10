@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_09_074860) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_10_181646) do
   create_table "attendances", force: :cascade do |t|
     t.datetime "check_in"
     t.datetime "check_out"
@@ -478,6 +478,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_09_074860) do
 
   create_table "users", force: :cascade do |t|
     t.string "avatar_url"
+    t.string "avatar_url_oauth"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.string "department", limit: 100
@@ -485,14 +486,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_09_074860) do
     t.datetime "last_login_at"
     t.string "license_no", limit: 100
     t.string "name", limit: 100, null: false
-    t.string "password_digest", null: false
+    t.string "password_digest"
     t.string "phone", limit: 20
     t.string "position", limit: 100
+    t.string "provider"
     t.integer "role", default: 0, null: false
     t.integer "status", default: 0, null: false
+    t.string "uid"
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
   create_table "work_categories", force: :cascade do |t|
