@@ -1,34 +1,33 @@
-<div class="sticky top-0 z-40 flex h-14 shrink-0 items-center gap-x-4 border-b border-zinc-800/60 bg-zinc-950/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8">
+<div class="sticky top-0 z-40 flex h-14 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white/90 backdrop-blur-sm px-4 sm:px-6 lg:px-8">
   <!-- 모바일 메뉴 버튼 -->
-  <button type="button" class="lg:hidden -m-2 p-2 text-zinc-400 hover:text-zinc-200 transition-colors" data-action="click->sidebar#toggle">
-    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-    </svg>
+  <button type="button" class="lg:hidden -m-2 p-2 text-gray-500 hover:text-gray-700 transition-colors" data-action="click->sidebar#toggle">
+    <i class="fa-solid fa-bars text-base" aria-hidden="true"></i>
   </button>
 
   <div class="flex flex-1 gap-x-4 self-stretch items-center">
     <!-- 페이지 타이틀 -->
     <div class="flex items-center">
-      <h1 class="text-sm font-medium text-zinc-300"><%= content_for(:title) || "tooktak" %></h1>
+      <h1 class="text-sm font-medium text-gray-700"><%= content_for(:title) || "tooktak" %></h1>
     </div>
 
     <div class="flex items-center gap-x-3 ml-auto">
       <!-- 알림 -->
       <% unread_count = Current.user&.notifications&.unread&.count || 0 %>
-      <%= link_to notifications_path, class: "relative p-2 text-zinc-400 hover:text-zinc-200 transition-colors rounded-md hover:bg-zinc-800/60" do %>
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-        </svg>
+      <%= link_to notifications_path, class: "relative p-2 text-gray-500 hover:text-gray-700 transition-colors rounded-md hover:bg-gray-100" do %>
+        <i class="fa-solid fa-bell text-sm" aria-hidden="true"></i>
         <% if unread_count > 0 %>
-          <span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-zinc-950"></span>
+          <span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
         <% end %>
       <% end %>
 
       <!-- 구분선 -->
-      <div class="h-4 w-px bg-zinc-800"></div>
+      <div class="h-4 w-px bg-gray-200"></div>
 
       <!-- 로그아웃 -->
-      <%= button_to "로그아웃", session_path, method: :delete, class: "text-xs font-medium text-zinc-400 hover:text-zinc-200 transition-colors px-3 py-1.5 rounded-md hover:bg-zinc-800/60" %>
+      <%= button_to session_path, method: :delete, class: "text-xs font-medium text-gray-500 hover:text-gray-700 transition-colors px-3 py-1.5 rounded-md hover:bg-gray-100 flex items-center gap-1.5" do %>
+        <i class="fa-solid fa-arrow-right-from-bracket text-xs" aria-hidden="true"></i>
+        로그아웃
+      <% end %>
     </div>
   </div>
 </div>

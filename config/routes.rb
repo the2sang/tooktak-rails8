@@ -26,14 +26,14 @@ Rails.application.routes.draw do
   end
 
   # 독립 리소스 (프로젝트 외부에서도 접근)
-  resources :work_orders, only: [:index]
-  resources :daily_reports, only: [:index]
-  resources :inspections, only: [:index]
-  resources :issues, only: [:index]
-  resources :costs, only: [:index]
-  resources :billings, only: [:index]
-  resources :documents, only: [:index]
-  resources :safety_checks, only: [:index]
+  resources :work_orders,   only: [:index, :new, :create]
+  resources :daily_reports, only: [:index, :new, :create]
+  resources :inspections,   only: [:index, :new, :create]
+  resources :issues,        only: [:index, :new, :create]
+  resources :costs,         only: [:index, :new, :create]
+  resources :billings,      only: [:index, :new, :create]
+  resources :documents,     only: [:index, :new, :create]
+  resources :safety_checks, only: [:index, :new, :create]
 
   # 자재 (프로젝트와 무관하게 독립 관리)
   resources :materials
