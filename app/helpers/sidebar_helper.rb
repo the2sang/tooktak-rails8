@@ -17,12 +17,16 @@ module SidebarHelper
 
   def sidebar_link(label, path, icon_name)
     is_active = current_page?(path) || (path != root_path && request.path.start_with?(path.to_s.split("?").first))
-    active_class = is_active ? "bg-gray-800 text-white" : "text-gray-400 hover:text-white hover:bg-gray-800"
+    active_class = if is_active
+      "bg-zinc-800 text-zinc-100"
+    else
+      "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60"
+    end
 
     content_tag(:li) do
-      link_to path, class: "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold #{active_class}" do
+      link_to path, class: "group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium transition-colors #{active_class}" do
         icon_svg = ICONS[icon_name] || ICONS["folder"]
-        raw(%(<svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">#{icon_svg}</svg>)) +
+        raw(%(<svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">#{icon_svg}</svg>)) +
         content_tag(:span, label)
       end
     end

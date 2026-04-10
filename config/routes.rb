@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
 
+  # Google OAuth 콜백
+  get "/auth/:provider/callback", to: "omniauth_callbacks#google"
+  get "/auth/failure", to: "omniauth_callbacks#failure"
+
   # 대시보드 (루트)
   root "dashboard#show"
 

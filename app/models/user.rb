@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_secure_password
+  has_secure_password validations: false
   has_many :sessions, dependent: :destroy
 
   belongs_to :company, optional: true
@@ -16,4 +16,16 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email_address, presence: true, uniqueness: true
+  validates :password, length: { minimum: 12 }, if: -> { password_digest.present? && password.present? }
+
+  def self.from_omniauth(auth)
+    find_or_initialize_by(provider: auth.provider, uid: auth.uid).tap do |user|
+      user.email_address = auth.info.email
+      user.name         = auth.info.name.presence || auth.info.email.split("@").first
+      user.avatar_url_oauth = auth.info.image
+      user.save!
+    end
+  rescue ActiveRecord::RecordNotUnique
+    find_by(provider: auth.provider, uid: auth.uid)
+  end
 end
